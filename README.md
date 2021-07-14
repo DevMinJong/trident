@@ -1,25 +1,62 @@
 # trident
 
-trident is a SDK that includes libraries for working with TRON, it makes it easy to build TRON applications with multi-language.
+Trident-Java is a lightweight SDK that includes libraries for working with TRON system contracts and smart contracts.
 
-## Contribution
+Trident-Java makes it easy to build TRON applications with java.
 
-We're very glad and appreciate to have contributions from the community. 
+Trident-Java document: https://developers.tron.network/docs/trident-java
 
-Refer to our [contributing guide](./CONTRIBUTING.md) for more information.
+Due to safety concerns, trident-java will no longer upload packaged files to maven. Please clone the code from GitHub and do the packaging. 
 
-[Join our Telegram group](https://t.me/TronOfficialDevelopersGroupEn)
+Trident-java is compiled with java version 13.0.2+8 and gradle 5.6.4.
 
-## trident-java
+## How to use
 
-trident-java is a lightweight SDK that includes libraries for working with TRON network.
+### Gradle Setting
 
-Functions include:
+Add repo setting:
 
-- Offline address generation
+```groovy
+repositories {
+    mavenCentral()
+}
+```
 
-- Offline transaction signature 
+Then add required packages as dependencies. Please add dependencies locally.
 
-- java-tron full node API support
+```groovy
+dependencies {
+    // protobuf & grpc
+    implementation 'com.google.protobuf:protobuf-java:3.11.0'
 
-For more informations refer to : [trident-java document](https://developers.tron.network/docs/trident-java)
+    implementation fileTree(dir:'../core')
+    implementation fileTree(dir:'../utils')
+    implementation fileTree(dir:'../abi')
+
+    implementation 'com.google.guava:guava:28.0-jre'
+}
+```
+
+### Maven Settings
+
+```xml
+<dependency>
+  <groupId>org.tron.trident</groupId>
+  <artifactId>abi</artifactId>
+  <version>0.1.1</version>
+  <type>pom</type>
+</dependency>
+<dependency>
+  <groupId>org.tron.trident</groupId>
+  <artifactId>utils</artifactId>
+  <version>0.1.1</version>
+  <type>pom</type>
+</dependency>
+<dependency>
+  <groupId>org.tron.trident</groupId>
+  <artifactId>core</artifactId>
+  <version>0.1.1</version>
+  <type>pom</type>
+</dependency>
+```
+
