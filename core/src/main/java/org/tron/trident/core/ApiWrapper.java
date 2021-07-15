@@ -154,7 +154,7 @@ public class ApiWrapper {
      * @param apiKey this function works with TronGrid, an API key is required.
      * @return a ApiWrapper object
      */
-    @Deprecated(since = "0.2.0", forRemoval = true)
+    @Deprecated
     public static ApiWrapper ofMainnet(String hexPrivateKey) {
         return new ApiWrapper("grpc.trongrid.io:50051", "grpc.trongrid.io:50052", hexPrivateKey);
     }
